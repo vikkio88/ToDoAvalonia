@@ -1,0 +1,19 @@
+<UserControl 
+xmlns="https://github.com/avaloniaui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="Todo.Views.TodoListView">
+  <DockPanel>
+    <Button DockPanel.Dock="Bottom" Command="{Binding $parent[Window].DataContext.AddItem}">Add</Button>
+    <TextBlock Margin="4" DockPanel.Dock="Top" IsVisible="{Binding !!!Items.Count}">Nothing to do</TextBlock>
+    <StackPanel>
+      <ItemsControl Items="{Binding Items}" IsVisible="{Binding !!Items.Count}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <CheckBox Margin="4" IsChecked="{Binding isChecked}" Content="{Binding Description}" />
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </DockPanel>
+</UserControl>
