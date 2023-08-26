@@ -8,7 +8,15 @@ using Services;
 public class MainWindowViewModel : ViewModelBase
 {
     ViewModelBase _content;
-    public ViewModelBase Content { get => _content; private set => this.RaiseAndSetIfChanged(ref _content, value); }
+
+    public ViewModelBase Content
+    { 
+        get => _content;
+        private set => this.RaiseAndSetIfChanged(ref _content, value);
+    }
+
+    public string Title { get; } = "Todo Main";
+
     public TodoListViewModel List { get; set; }
 
     public MainWindowViewModel()
@@ -19,6 +27,7 @@ public class MainWindowViewModel : ViewModelBase
     public void AddItem()
     {
         var vm = new AddTodoViewModel();
+
         vm.Ok.Take(1).Subscribe(item =>
         {
             if (item is not null)
