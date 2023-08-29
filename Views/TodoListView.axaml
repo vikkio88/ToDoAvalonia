@@ -7,7 +7,7 @@ xmlns="https://github.com/avaloniaui"
     <Button DockPanel.Dock="Bottom" Command="{Binding $parent[Window].DataContext.AddItem}">Add</Button>
     <TextBlock Margin="4" DockPanel.Dock="Top" IsVisible="{Binding !!!Items.Count}">Nothing to do</TextBlock>
     <StackPanel>
-      <ItemsControl Items="{Binding Items}" IsVisible="{Binding !!Items.Count}">
+      <ItemsControl ItemsSource="{Binding Items}" IsVisible="{Binding !!Items.Count}">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
             <CheckBox Margin="4" IsChecked="{Binding isChecked}" Content="{Binding Description}" />
